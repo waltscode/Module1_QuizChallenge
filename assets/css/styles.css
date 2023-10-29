@@ -34,11 +34,22 @@ body {
 #highscores-container {
     background: var(--darkblue);
     width: 90%;
-    max-width: 600px;
+    max-width: 400px;
     margin: 100px auto 0;
     border-radius: 10px;
     color: var(--white);
     font-size: larger;
+    text-align: center;
+    padding: 10px;
+}
+
+#highscores-container ul{
+text-align: left;
+padding-left: 20px;
+}
+
+#highscores-container h2{
+    padding-bottom: 30px;
 }
 
 #timer {
@@ -155,6 +166,7 @@ p{
     font-size: x-large;
 }
 
-#quiz-container {
-
+#score-form {
+    color: var(--white);
 }
+
