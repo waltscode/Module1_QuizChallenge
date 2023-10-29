@@ -5,12 +5,16 @@
     box-sizing: border-box;
 }
 
+:root {
+    --darkblue:#38406F;
+    --white: #DFDBD8;
+}
 body {
-    background: bisque;
+    background: var(--white);
 }
 
 .app {
-    background: blueviolet;
+    background: var(--darkblue);
     width: 90%;
     max-width: 600px;
     margin: 100px auto 0;
@@ -19,7 +23,7 @@ body {
 
 .app h1 {
     font-size: 25px;
-    color: cadetblue;
+    color: var(--white);
     font-weight: 600;
     border-bottom: 1px solid #333;
     padding-bottom: 30px;
@@ -32,13 +36,13 @@ body {
 
 .quiz h2 {
     font-size: 18px;
-    color: black;
+    color: var(--white);
     font-weight: 600;
 }
 
 .btn {
     background: #fff;
-    color: #222;
+    color: var(--darkblue);
     font-weight: 500;
     width: 100%;
     border: 1px solid #222;
@@ -51,7 +55,7 @@ body {
 }
 
 .btn:hover:not([disabled]) {
-    background: #222;
+    background: #623FB2;
     color: #fff;
 }
 
