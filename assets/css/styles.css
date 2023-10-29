@@ -31,6 +31,16 @@ body {
     cursor: grabbing;
 }
 
+#highscores-container {
+    background: var(--darkblue);
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    color: var(--white);
+    font-size: larger;
+}
+
 #timer {
     position: fixed;
     top: 10px;

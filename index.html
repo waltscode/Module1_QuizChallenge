@@ -17,6 +17,12 @@
     <div id="timer" style="display: none;">Timer: 40
     </div>
 
+    <div id="highscores-container" style="display: none;">
+        <h2>High Scores</h2>
+        <ul id="highscores-list"></ul>
+        <button id="close-highscores">Close</button>
+    </div>
+    
     <div id="start-container">
         <p>Welcome to the Javascript Quiz!</p>
         <button id="start-btn">Test Your Luck! Start The Quiz!</button>
@@ -34,6 +40,11 @@
             </div>
             <button id="next-btn">Next!</button>
         </div>
+        <form id="score-form" style="display: none;">
+            <label for="username">Enter your name:</label>
+            <input type="text" id="username" required>
+            <button type="submit">Submit Score</button>
+        </form>
     </div>
 
     <script src="./assets/js/styles.js"></script>
