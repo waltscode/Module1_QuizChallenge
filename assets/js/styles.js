@@ -37,9 +37,22 @@ var questions = [
     }
 ];
 
+// The elements created are for the Quiz & Questions
 const questionElement = document.getElementById('question');
 const answerButtons = document.getElementById('answer-buttons');
 const nextButton = document.getElementById('next-btn');
+
+// These elements are created for the start button on the main page that launches the quiz
+const startContainer = document.getElementById('start-container');
+const startButton = document.getElementById('start-btn');
+const quizContainer = document.getElementById('quiz-container');
+
+// adding an eventlistener to the START BUTTON in order to launch the quiz and remove the display:none setting
+startButton.addEventListener('click', () => {
+    startContainer.style.display = 'none';
+    quizContainer.style.display = 'block';
+    startQuiz();
+});
 
 let currentQuestionIndex = 0;
 let score = 0;

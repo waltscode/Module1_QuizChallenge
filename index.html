@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,21 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
+
 <body>
-    <div class="app">
+    <div>
+        <button id="highscoreButton">View Highscores!</button>
+    </div>
+
+    <div id="timer">Timer: 60
+    </div>
+
+    <div id="start-container">
+        <p>Welcome to the Javascript Quiz!</p>
+        <button id="start-btn">Test Your Luck! Start The Quiz!</button>
+    </div>
+
+    <div class="app" id="quiz-container" style="display: none;">
         <h1>Simple Quiz</h1>
         <div class="quiz">
             <h2 id="question">Question goes here</h2>
@@ -24,4 +38,5 @@
 
     <script src="./assets/js/styles.js"></script>
 </body>
+
 </html>

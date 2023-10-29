@@ -6,11 +6,38 @@
 }
 
 :root {
-    --darkblue:#38406F;
+    --darkblue: #38406F;
     --white: #DFDBD8;
 }
+
 body {
     background: var(--white);
+}
+
+#highscoreButton {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: var(--darkblue);
+    color: var(--white) ;
+    border: none;
+    cursor: grab;
+    box-shadow: 4px 4px darkgrey;
+}
+
+#highscoreButton:active {
+    cursor: grabbing;
+}
+
+#timer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    color: var(--darkblue);
+    border-style: groove;
+    border: 1px;
 }
 
 .app {
@@ -25,9 +52,12 @@ body {
     font-size: 25px;
     color: var(--white);
     font-weight: 600;
-    border-bottom: 1px solid #333;
-    padding-bottom: 30px;
-}
+    border-bottom: 1px dotted var(--white);
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: center;
+    justify-content: center;
+   }
 
 .quiz {
     padding: 20px 0;
@@ -59,7 +89,7 @@ body {
     color: #fff;
 }
 
-.btn:disabled{
+.btn:disabled {
     cursor: not-allowed;
 }
 
@@ -80,6 +110,35 @@ body {
     background-color: #9aeabc;
 }
 
-.incorrect{
+.incorrect {
     background-color: #ff9393;
+}
+
+#start-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#start-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 25px;
+}
+
+#quiz-container {
+
 }
