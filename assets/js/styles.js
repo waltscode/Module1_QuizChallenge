@@ -47,12 +47,28 @@ const startContainer = document.getElementById('start-container');
 const startButton = document.getElementById('start-btn');
 const quizContainer = document.getElementById('quiz-container');
 
-// adding an eventlistener to the START BUTTON in order to launch the quiz and remove the display:none setting
+// creating a function that when startQuiz function runs, the timer will then begin to count down
+const timerElement = document.getElementById('timer');
+
+let timeRemaining = 40;
+
+// adding an eventlistener to the START BUTTON in order to launch the quiz and remove the display:none setting on the quiz - MAKING IT VISIBLE
 startButton.addEventListener('click', () => {
     startContainer.style.display = 'none';
     quizContainer.style.display = 'block';
+    const countdown = setInterval(function () {
+        timeRemaining--;
+        timerElement.textContent = `Timer: ${timeRemaining}`;
+        if (timeRemaining <= 0) {
+            clearInterval(countdown);
+            alert('Oops! Out of Time!');
+            showScore();
+        }
+    },1000);
     startQuiz();
 });
+
+
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -61,7 +77,7 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
-    showQuestion();
+       showQuestion();
 }
 
 
