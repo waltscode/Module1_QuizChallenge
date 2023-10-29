@@ -150,6 +150,11 @@ body {
     margin-top: 25px;
 }
 
+p{
+    color: var(--darkblue);
+    font-size: x-large;
+}
+
 #quiz-container {
 
 }

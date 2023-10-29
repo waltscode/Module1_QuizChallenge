@@ -1,38 +1,38 @@
 var questions = [
     {
-        question: 'what is the largest animal in the world?',
+        question: 'What is the correct way to declare a variable in JavaScript?',
         answers: [
-            { text: "shark", correct: false },
-            { text: "bird", correct: false },
-            { text: "snake", correct: false },
-            { text: "blue whale", correct: true },
+            { text: "variable x", correct: false },
+            { text: "I Declare that x", correct: false },
+            { text: "x = var", correct: false },
+            { text: "var x", correct: true },
         ]
     },
     {
-        question: 'what is the smallest animal?',
+        question: 'What is the purpose of the "console.log()" function in JavaScript?',
         answers: [
-            { text: "shark", correct: false },
-            { text: "bird", correct: true },
-            { text: "snake", correct: false },
-            { text: "blue whale", correct: false },
+            { text: "It displays a message in an alert", correct: false },
+            { text: "It logs messages in the console for debugging", correct: true },
+            { text: "Creates a variable", correct: false },
+            { text: "It prints text to the webpage", correct: false },
         ]
     },
     {
-        question: 'what city was Wayne Gretzky from?',
+        question: 'Which of the following is a primitive data type in JavaScript?',
         answers: [
-            { text: "Toronto", correct: false },
-            { text: "Vancouver", correct: false },
-            { text: "Barrie", correct: false },
-            { text: "Brantford", correct: true },
+            { text: "Array", correct: false },
+            { text: "Object", correct: false },
+            { text: "Function", correct: false },
+            { text: "String", correct: true },
         ]
     },
     {
-        question: 'Who is the best dog in the world?',
+        question: 'What does the "DOM" stand for in the context of web development with JavaScript?',
         answers: [
-            { text: "Rocky", correct: true },
-            { text: "Old Yeller", correct: false },
-            { text: "Air Bud", correct: false },
-            { text: "Toby", correct: false },
+            { text: "Document Object Model", correct: true },
+            { text: "Data Object Mixture", correct: false },
+            { text: "Delta Omega Mega", correct: false },
+            { text: "Document Order Mechanism", correct: false },
         ]
     }
 ];
@@ -49,6 +49,8 @@ const quizContainer = document.getElementById('quiz-container');
 
 // creating a function that when startQuiz function runs, the timer will then begin to count down
 const timerElement = document.getElementById('timer');
+
+const scoreForm = document.getElementById('score-form');
 
 let timeRemaining = 40;
 let countdown;
@@ -106,6 +108,7 @@ function showQuestion() {
         }
         button.addEventListener('click', selectAnswer);
     });
+    document.getElementById('score-form').style.display = 'none';
 }
 
 
@@ -139,7 +142,7 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    
+
     const playAgainButton = document.createElement("button");
     playAgainButton.innerHTML = "Play Again";
     playAgainButton.classList.add('btn', 'play-again-btn');
@@ -155,19 +158,22 @@ function showScore() {
         scoreForm.style.display = 'block';
         playAgainButton.style.display = 'none';
         submitScoreButton.style.display = 'none';
+
     });
+
 
     playAgainButton.addEventListener('click', () => {
         startQuiz();
 
     });
 
+
     playAgainButton.style.display = 'block';
     submitScoreButton.style.display = 'block';
 }
 
 
-const scoreForm = document.getElementById('score-form');
+
 
 scoreForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -191,8 +197,15 @@ const highscoresContainer = document.getElementById('highscores-container');
 const highscoresList = document.getElementById('highscores-list');
 const closeHighscoresButton = document.getElementById('close-highscores');
 
+
+
 highscoreButton.addEventListener('click', showHighscores);
-closeHighscoresButton.addEventListener('click', hideHighscores);
+closeHighscoresButton.addEventListener('click', () => {
+    hideHighscores();
+    startContainer.style.display = 'block';
+    quizContainer.style.display = 'none';
+    timerElement.style.display = 'none';
+});
 
 function showHighscores() {
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
