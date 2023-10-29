@@ -56,6 +56,7 @@ let timeRemaining = 40;
 startButton.addEventListener('click', () => {
     startContainer.style.display = 'none';
     quizContainer.style.display = 'block';
+    timerElement.style.display = 'block';
     const countdown = setInterval(function () {
         timeRemaining--;
         timerElement.textContent = `Timer: ${timeRemaining}`;
