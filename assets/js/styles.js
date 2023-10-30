@@ -197,7 +197,11 @@ function showScore() {
 
 
 
-
+// event listener on the 'submit' button that pops up on the form when clicked
+// (e).prevent default is used to prevent the default function of submitting form - STOPPING THE PAGE FROM REFRESHING 
+// username.value is being used to take the information entered in that field and saving it as 'username' value
+// function saveHighscore is being used to take the 'username' and 'score' together for the highscore list
+// choose what containers you want to see and NOT SEE
 scoreForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const username = document.getElementById('username').value;
@@ -209,7 +213,12 @@ scoreForm.addEventListener('submit', function (e) {
     startQuiz();
 });
 
-
+// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];: This line retrieves the 'highScores' from the browser's local storage.
+//  If there are no high scores stored yet (or if there is an issue parsing them from JSON), it initializes an empty array ([]).
+//  The retrieved high scores are stored in the variable highScores.
+// highScores.sort((a, b) => b.score - a.score);: This line sorts the highScores array in descending order based on the 'score' property of each entry.
+//  This means that the highest scores will be at the beginning of the array after the sorting is complete.
+// the saveHighScore function is responsible for updating the high scores STORED IN THE LOCAL STORAGE
 function saveHighScore(username, score) {
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
     highScores.push({ username, score });
@@ -217,14 +226,14 @@ function saveHighScore(username, score) {
     localStorage.setItem('highScores', JSON.stringify(highScores));
 }
 
-
+// declaring the variables for the highscore feature in the HTML - the container, the button, the list, etc. 
 const highscoreButton = document.getElementById('highscoreButton');
 const highscoresContainer = document.getElementById('highscores-container');
 const highscoresList = document.getElementById('highscores-list');
 const closeHighscoresButton = document.getElementById('close-highscores');
 
 
-
+// just logic for what happens when you click the highscore button - WHAT IS SEEN AND WHAT IS NOT
 highscoreButton.addEventListener('click', showHighscores);
 closeHighscoresButton.addEventListener('click', () => {
     hideHighscores();
@@ -233,6 +242,7 @@ closeHighscoresButton.addEventListener('click', () => {
     timerElement.style.display = 'none';
 });
 
+// we need a function for showing the highscores in a list format - basically retrieving the info from the local storage and then listing them accordingly
 function showHighscores() {
     const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
     highscoresList.innerHTML = '';
@@ -243,7 +253,7 @@ function showHighscores() {
         highscoresList.appendChild(listItem);
     });
 
-
+// this is again what you will see when the function showHighscores() runs
     highscoresContainer.style.display = 'block';
     highscoreButton.style.display = "none";
     timerElement.style.display = "none";
@@ -251,11 +261,16 @@ function showHighscores() {
     startContainer.style.display = "none";
 }
 
+// this is the function that occurs when you click close on the highscore section and ofcourse while anything else is running 
+// the content NEEDS TO EXIST WITHOUT BEING SEEN EXCEPT WHEN THE INTENTION IS TO VIEW IT
 function hideHighscores() {
     highscoresContainer.style.display = 'none';
 }
 
-
+// this is function that tells when to show the 'NEXT' button and what it's supposed to do
+// we need the next button to remove the previous question and reveal the next one
+// if the question index is less than the questions length - NEXT QUESTION 
+// if the question index is equal to length or NOT LESS THAN - the showScore() function runs
 function handleNextButton() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
@@ -267,7 +282,7 @@ function handleNextButton() {
         timeRemaining = 40;
     }
 }
-
+// this is being used to give the next button a click feature - WHEN CLICKED, 'handleNextButton()' function runs!
 nextButton.addEventListener('click', () => {
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
@@ -279,6 +294,9 @@ nextButton.addEventListener('click', () => {
     }
 });
 
+// we need to tell the computer to NOT ONLY reset the question loop, 
+// we need QUESTION TO START BACK AT 0 INDEX and SCORE TO START BACK AT 0 
+// without adding the display stuff the quiz just goes back into action, I want the start screen green button to show!
 function resetQuiz() {
     currentQuestionIndex = 0;
     score = 0;
