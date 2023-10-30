@@ -67,11 +67,12 @@ startButton.addEventListener('click', () => {
         timerElement.textContent = `Timer: ${timeRemaining}`;
         if (timeRemaining <= 0 || currentQuestionIndex[3]) {
             clearInterval(countdown);
+            timerElement.textContent = `Timer: 0`;
             alert('Oops! Out of Time!');
             showScore()
         }
 
-    }, 1000); 
+    }, 1000);
     startQuiz();
 });
 
@@ -180,17 +181,17 @@ function showScore() {
 
     });
 
-// there needs to be logic to what happens when the user clicks the PLAY AGAIN BUTTON - essentially we need remove the content on screen and bring back the start quiz button
+    // there needs to be logic to what happens when the user clicks the PLAY AGAIN BUTTON - essentially we need remove the content on screen and bring back the start quiz button
     playAgainButton.addEventListener('click', () => {
         // startQuiz();
         // resetTimer();
-        startContainer.style.display = 'block';
-        highscoreButton.style.display = 'none';
+        startContainer.style.display = 'flex';
+        highscoreButton.style.display = 'block';
         timerElement.style.display = 'none';
 
     });
 
-// this will show the PLAY AGAIN and the SUBMIT SCORE buttons
+    // this will show the PLAY AGAIN and the SUBMIT SCORE buttons
     playAgainButton.style.display = 'block';
     submitScoreButton.style.display = 'block';
 }
@@ -207,8 +208,8 @@ scoreForm.addEventListener('submit', function (e) {
     const username = document.getElementById('username').value;
     saveHighScore(username, score);
     alert('Score submitted successfully!');
-    startContainer.style.display = 'block';
-    highscoreButton.style.display = 'none';
+    startContainer.style.display = 'flex';
+    highscoreButton.style.display = 'block';
     timerElement.style.display = 'none';
     startQuiz();
 });
@@ -237,7 +238,8 @@ const closeHighscoresButton = document.getElementById('close-highscores');
 highscoreButton.addEventListener('click', showHighscores);
 closeHighscoresButton.addEventListener('click', () => {
     hideHighscores();
-    startContainer.style.display = 'block';
+    startContainer.style.display = 'flex';
+    highscoreButton.style.display = 'block';
     quizContainer.style.display = 'none';
     timerElement.style.display = 'none';
 });
@@ -253,7 +255,7 @@ function showHighscores() {
         highscoresList.appendChild(listItem);
     });
 
-// this is again what you will see when the function showHighscores() runs
+    // this is again what you will see when the function showHighscores() runs
     highscoresContainer.style.display = 'block';
     highscoreButton.style.display = "none";
     timerElement.style.display = "none";
@@ -288,7 +290,6 @@ nextButton.addEventListener('click', () => {
         handleNextButton();
     } else {
         showScore();
-        nextButton.innerHTML = 'test button 12121';
         resetTimer();
         resetQuiz();
     }
