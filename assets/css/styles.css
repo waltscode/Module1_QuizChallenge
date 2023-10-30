@@ -111,11 +111,14 @@ padding-left: 20px;
     transition: 0.3s;
 }
 
+/* when you hover over a button with the class 'btn' and it's not disabled, the background color will change to purple, 
+and the text color will change to white, providing a visual feedback to the user. */
 .btn:hover:not([disabled]) {
     background: #623FB2;
     color: #fff;
 }
 
+/* when it IS DISABLED - you change the curser to not allowed - essentially preventing further clicking once you make a choice */
 .btn:disabled {
     cursor: not-allowed;
 }
