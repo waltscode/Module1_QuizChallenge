@@ -31,6 +31,8 @@ When you complete the game, you are presented with your score.
 
 You are then granted the choice to submit your score OR play again. 
 
+There is button on the main page that stores your highscores locally, you can click the button to view previous attempts. 
+
 ```
 
 # Website
