@@ -129,6 +129,11 @@ function selectAnswer(e) {
     } else {
         selectedBtn.classList.add("incorrect");
         score--;
+
+        timeRemaining -= 10;
+        if (timeRemaining < 0) {
+            timeRemaining = 0;
+        }
     }
     Array.from(answerButtons.children).forEach(button => {
         if (button.dataset.correct === "true") {
@@ -163,7 +168,11 @@ function showScore() {
 
 
     playAgainButton.addEventListener('click', () => {
-        startQuiz();
+        // startQuiz();
+        // resetTimer();
+        startContainer.style.display = 'block';
+        highscoreButton.style.display = 'none';
+        timerElement.style.display = 'none';
 
     });
 
@@ -180,6 +189,9 @@ scoreForm.addEventListener('submit', function (e) {
     const username = document.getElementById('username').value;
     saveHighScore(username, score);
     alert('Score submitted successfully!');
+    startContainer.style.display = 'block';
+    highscoreButton.style.display = 'none';
+    timerElement.style.display = 'none';
     startQuiz();
 });
 
