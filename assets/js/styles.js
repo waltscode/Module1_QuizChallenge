@@ -128,7 +128,7 @@ function resetState() {
     }
 }
 
-// We want a variable that will allow a user to choose ANY (e) of the buttons(answers)
+// We want a variable that will allow a user to choose ANY EVENT (e) of the buttons(answers)
 // we want to create a variable that provides the logic on wether the button being clicked is 'TRUE' (correct) - basically iscorrect is the right answer everything ELSE is wrong
 // if the user chooses a value that is ELSE the timer will -10 from the interval(timer) also if the time remaining is less than 0 or 0
 // also adding a css effect forEach(button) - if the dataset is TRUE then class of 'correct' - Green will be revealed after click

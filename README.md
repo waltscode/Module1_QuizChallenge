@@ -7,31 +7,31 @@ Check out the many features the quiz offers and have fun!
 
 # Features
 ```
-GIVEN you are taking a code quiz.
+- GIVEN you are taking a code quiz.
 
-WHEN you click the start button, THEN a timer starts and you are presented with a question.
+- WHEN you click the start button, THEN set interval timer starts and you are presented with a question.
 
-WHEN you answer a question, THEN you are presented with another question.
+- WHEN you answer a question, THEN you are presented with another question.
 
-WHEN you answer a question incorrectly, THEN time is subtracted from the clock.
+- WHEN you answer a question incorrectly, THEN time is subtracted from the clock.
 
-WHEN all questions are answered or the timer reaches 0, THEN the game is over.
+- WHEN all questions are answered or the timer reaches 0, THEN the game is over.
 
-WHEN the game is over, THEN you can save your initials and your score.
+- WHEN the game is over, THEN you can save your initials and your score.
 
 ```
 
 # Additional Features
 ```
-When you hover over an option, the color changes.
+- When you hover over an option, the color changes.
 
-When you choose an answer, the correct answer is revealed. All other choices become un-clickable.
+- When you choose an answer, the correct answer is revealed. All other choices become un-clickable.
 
-When you complete the game, you are presented with your score. 
+- When you complete the game, you are presented with your score. 
 
-You are then granted the choice to submit your score OR play again. 
+- You are then granted the choice to submit your score OR play again. 
 
-There is button on the main page that stores your highscores locally, you can click the button to view previous attempts. 
+- There is button on the main page that stores your highscores locally, you can click the button to view previous attempts. 
 
 ```
 
