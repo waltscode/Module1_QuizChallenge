@@ -13,7 +13,7 @@
 
 body {
     /* background: var(--white); */
-    background-image: url('../images/xianyu-hao-paT-IJpXa3A-unsplash.jpg');
+    background-image: url(../images/xianyu-hao-paT-IJpXa3A-unsplash.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     
